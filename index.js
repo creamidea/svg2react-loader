@@ -49,7 +49,7 @@ function renderJsx(displayName, xml, callback) {
 /**
  * @param {String} source
  */
-module.exports = function (source) {
+module.exports = function main(source) {
   // read our template
   const tmplPath = path.join(__dirname, '/util/svg.tpl');
 
@@ -65,7 +65,7 @@ module.exports = function (source) {
 
   const displayName = rsrcQuery.name || query.name || getName(rsrcPath);
 
-  const render = function () {
+  const render = function _render() {
     const xmlParser = new xml2js.Parser();
     xmlParser.parseString(source, (error, xml) => {
       if (error) {
